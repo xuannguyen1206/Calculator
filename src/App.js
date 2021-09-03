@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import React from 'react';
+import Computer from './components/Computer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(prop){
+    super(prop)
+    this.userName = 'sss';
+  }
+  componentWillMount(){
+    this.userName = prompt('Enter your name');
+    console.log(this.userName);
+  }
+  render(){
+    return (
+      <div className="App">
+        <header>Calculator</header>
+        <Computer userName = {this.userName}/>
+        <div id='watermark'>
+          <span>made by </span>
+          <span id='HXN'>HXN</span>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
